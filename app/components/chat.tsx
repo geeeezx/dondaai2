@@ -8,7 +8,7 @@ import ReturnIcon from "../icons/return.svg";
 import CopyIcon from "../icons/copy.svg";
 import DownloadIcon from "../icons/download.svg";
 import LoadingIcon from "../icons/three-dots.svg";
-import BotIcon from "../icons/bot.svg";
+import BotIcon from "../icons/logo.svg";
 import AddIcon from "../icons/add.svg";
 import DeleteIcon from "../icons/delete.svg";
 import MaxIcon from "../icons/max.svg";
