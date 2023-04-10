@@ -3,7 +3,7 @@
   --white: white;
   --black: rgb(48, 48, 48);
   --gray: rgb(250, 250, 250);
-  --primary: rgb(29, 147, 171);
+  --primary: rgb(15, 204, 242);
   --second: rgb(231, 248, 255);
   --hover-color: #f3f3f3;
   --bar-color: rgba(0, 0, 0, 0.1);
@@ -47,7 +47,7 @@
 
 :root {
   @include light;
-
+  --max-width: 1100px;
   --window-width: 90vw;
   --window-height: 90vh;
   --sidebar-width: 300px;
@@ -80,8 +80,9 @@ html {
 }
 
 body {
-  background-color: var(--gray);
-  color: var(--black);
+  background-color: #ffffff;
+  max-width: 100vw;
+  color: #ffffff;
   margin: 0;
   padding: 0;
   height: var(--full-height);
@@ -94,8 +95,12 @@ body {
     "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
   @media only screen and (max-width: 600px) {
-    background-color: var(--second);
+    background-color: #ffffff;
   }
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {
@@ -124,10 +129,6 @@ select {
   background-color: var(--white);
   color: var(--black);
   text-align: center;
-}
-
-label {
-  cursor: pointer;
 }
 
 input {
@@ -159,11 +160,19 @@ input[type="checkbox"]:checked::after {
 
 input[type="range"] {
   appearance: none;
+  border: var(--border-in-light);
+  border-radius: 10px;
+  padding: 5px 15px 5px 10px;
   background-color: var(--white);
   color: var(--black);
+
+  &::before {
+    content: attr(value);
+    font-size: 12px;
+  }
 }
 
-@mixin thumb() {
+input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   height: 8px;
   width: 20px;
@@ -172,41 +181,15 @@ input[type="range"] {
   cursor: pointer;
   transition: all ease 0.3s;
   margin-left: 5px;
-  border: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  @include thumb();
-}
-
-input[type="range"]::-moz-range-thumb {
-  @include thumb();
-}
-
-input[type="range"]::-ms-thumb {
-  @include thumb();
-}
-
-@mixin thumbHover() {
+input[type="range"]::-webkit-slider-thumb:hover {
   transform: scaleY(1.2);
   width: 24px;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  @include thumbHover();
-}
-
-input[type="range"]::-moz-range-thumb:hover {
-  @include thumbHover();
-}
-
-input[type="range"]::-ms-thumb:hover {
-  @include thumbHover();
-}
-
 input[type="number"],
-input[type="text"],
-input[type="password"] {
+input[type="text"] {
   appearance: none;
   border-radius: 10px;
   border: var(--border-in-light);
